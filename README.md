@@ -1,7 +1,7 @@
 # docker-geoserver
 
 A simple docker container that runs Geoserver influenced by this docker
-recipe: https://github.com/kartoza/docker-geoserver by Tim Sutton and this recipe https://github.com/thinkWhere/GeoServer-Docker. Created with input from GeoSolutions.
+recipe: https://github.com/kartoza/docker-geoserver by Tim Sutton and this recipe https://github.com/thinkWhere/GeoServer-Docker.
 
 This container is configured to build with:
 * Tomcat8.5
@@ -11,7 +11,7 @@ This container is configured to build with:
 * Truetype fonts: Any .ttf fonts copied to the /resources/fonts folder will be included in the container
 * Native JAI / JAI ImageIO for better raster data processing 
 * Clustering of Geoserver by hazelcast and jdbconfig
-* Postgresql/Postgis - ADD VERSION
+* Postgresql/Postgis - 10.0-2.4
 
 
 **Note:** We recommend using ``apt-cacher-ng`` to speed up package fetching -
@@ -181,9 +181,14 @@ To deploy using docker-compose:
 2. copy tomcat_settings folder from this repository to your machine.
 3. copy docker-compose.yml to your machine.  Edit the volume entries to reflect the correct location of your geoserver_data, nginx and tomcat_settings folders on your machine.
 4. type `docker build -t simonelanucara/geoserver-docker:2.13 .` to build the image locally
-4. type `docker-compose up --build -d`  to start up a cluster of 2x geoserver containers.
-5. access geoserver services at  http://YOURIP/geoserver/wms?
+5. type `docker-compose up --build -d`  to start up a cluster of 2x geoserver containers + 1 posgresql/postgis container.
+6. configure jdbcconfig and cluster properties
+7. access geoserver services at  http://YOURIP/geoserver/wms?
+8. add postgis store
+
 
 **Note:** The default geoserver user is 'admin' and the password is 'geoserver'.
 It is recommended that these are changed for production systems.
+The postgis geoserver store is avaliable on host 172.17.0.1, port 25433 dabase gis.
+The postgresql connection is avaliable on your external IP on port 24533.
 
