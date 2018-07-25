@@ -1,5 +1,5 @@
 version: '2'
-#services:
+services:
 #  nginx:
 #    container_name: nginx_loadbalance
 #    restart: always
