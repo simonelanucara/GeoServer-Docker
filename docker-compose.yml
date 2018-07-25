@@ -46,7 +46,7 @@ services:
      - ~/tomcat_settings/setenv.sh:/usr/local/tomcat/bin/setenv.sh
      - ~/tomcat_settings/logs_8085:/usr/local/tomcat/logs
      - ~/Rasters:/root/Raster
-     depends_on:
+    links:
      - db
   geoserver_8086:
     container_name: geoserver_8086
@@ -67,5 +67,5 @@ services:
      - ~/tomcat_settings/setenv.sh:/usr/local/tomcat/bin/setenv.sh
      - ~/tomcat_settings/logs_8086:/usr/local/tomcat/logs
      - ~/Rasters:/root/Raster
-    depends_on:
+    links:
      - db
