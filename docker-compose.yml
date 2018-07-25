@@ -19,7 +19,7 @@ services:
   geoserver_8085:
     container_name: geoserver_8085
     restart: always
-    image: simonelanucara/GeoServer-Docker:2.13
+    image: simonelanucara/geoserver-docker:2.13
     logging:
         driver: "json-file"
         options:
@@ -38,7 +38,7 @@ services:
   geoserver_8086:
     container_name: geoserver_8086
     restart: always
-    image: simonelanucara/GeoServer-Docker:2.13
+    image: simonelanucara/geoserver-docker:2.13
     logging:
         driver: "json-file"
         options:
