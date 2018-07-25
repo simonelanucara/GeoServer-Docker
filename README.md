@@ -38,7 +38,7 @@ match your cacher host. Then build using a local url instead of directly from
 github.
 
 ```shell
-git clone git://github.com/simonelanucara/geoServer-docker/
+git clone git://github.com/simonelanucara/geoserver-docker/
 ```
 Now edit ``71-apt-cacher-ng`` 
 
