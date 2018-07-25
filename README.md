@@ -19,20 +19,9 @@ you should configure the host for it in the provided 71-apt-cacher-ng file.
 
 ## Getting the image
 
-The image can be downloaded from our image on dockerhub:
+The image cannot be downloaded from dockerhub.
 
-
-```shell
-docker pull thinkwhere/geoserver
-```
-
-To build the image yourself do:
-
-```shell
-docker build -t thinkwhere/geoserver git://github.com/thinkwhere/geoserver-docker/2.9
-```
-
-To build with apt-cacher-ng (and minimised download requirements) you need to
+To build with apt-cacher-ng you need to
 clone this repo locally first and modify the contents of 71-apt-cacher-ng to
 match your cacher host. Then build using a local url instead of directly from
 github.
@@ -40,8 +29,12 @@ github.
 ```shell
 git clone git://github.com/simonelanucara/geoserver-docker/
 ```
-Now edit ``71-apt-cacher-ng`` 
+Now edit ``71-apt-cacher-ng``
 
+And build:
+```shell
+docker build -t simonelanucara/geoserver-docker .
+```
 ## Options
 
 ### Geoserver Plugins
@@ -52,6 +45,7 @@ download the plugin zip files from the GeoServer download page and put them in
 GeoServer you are installing.
 GeoServer version is controlled by the variable in Dockerfile, or download the WAR bundle
 for the version you want to `resources/geoserver.zip` before building.
+The 2.13 version contain jdbcconfig and hazelcast plugin.
 
 ### Custom Fonts
 
@@ -191,4 +185,3 @@ To deploy using docker-compose:
 It is recommended that these are changed for production systems.
 The postgis geoserver store is avaliable on host 172.17.0.1, port 25433 dabase gis.
 The postgresql connection is avaliable on your external IP on port 24533.
-
