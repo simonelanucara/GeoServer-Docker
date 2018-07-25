@@ -16,6 +16,17 @@ services:
 #    links:
 #     - geoserver_8085
 #     - geoserver_8086
+  db:
+    image: kartoza/postgis:10.0-2.4
+    volumes:
+	   - ~/pg/postgres_data:/var/lib/postgresql
+    ports:
+     - "25433:5432"
+    environment:
+      - USERNAME=docker
+      - PASS=docker
+      - ALLOW_IP_RANGE=0.0.0.0/0
+    restart: always
   geoserver_8085:
     container_name: geoserver_8085
     restart: always
@@ -34,7 +45,9 @@ services:
      - ~/geoserver_data:/opt/geoserver/data_dir
      - ~/tomcat_settings/setenv.sh:/usr/local/tomcat/bin/setenv.sh
      - ~/tomcat_settings/logs_8085:/usr/local/tomcat/logs
-     - ~/Rasters:/root/Rasters
+     - ~/Rasters:/root/Raster
+	  depends_on:
+      - db
   geoserver_8086:
     container_name: geoserver_8086
     restart: always
@@ -54,3 +67,5 @@ services:
      - ~/tomcat_settings/setenv.sh:/usr/local/tomcat/bin/setenv.sh
      - ~/tomcat_settings/logs_8086:/usr/local/tomcat/logs
      - ~/Rasters:/root/Rasters
+	  depends_on:
+      - db
