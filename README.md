@@ -1,14 +1,17 @@
 # docker-geoserver
 
 A simple docker container that runs Geoserver influenced by this docker
-recipe: https://github.com/kartoza/docker-geoserver by Tim Sutton. Created with input from GeoSolutions.
+recipe: https://github.com/kartoza/docker-geoserver by Tim Sutton and this recipe https://github.com/thinkWhere/GeoServer-Docker. Created with input from GeoSolutions.
 
 This container is configured to build with:
 * Tomcat8.5
 * Openjdk 8 
-* GeoServer 2.8.x / 2.9.x / 2.10.x / 2.11.x
+* GeoServer 2.8.x / 2.9.x / 2.10.x / 2.11.x / 2.12.x / 2.13x
 * GeoServer Plugins: Any plugins downloaded to /resources/plugins
 * Truetype fonts: Any .ttf fonts copied to the /resources/fonts folder will be included in the container
+* Native JAI / JAI ImageIO for better raster data processing 
+* Clustering of Geoserver by hazelcast and jdbconfig
+* Postgresql/Postgis - ADD VERSION
 
 
 **Note:** We recommend using ``apt-cacher-ng`` to speed up package fetching -
@@ -35,7 +38,7 @@ match your cacher host. Then build using a local url instead of directly from
 github.
 
 ```shell
-git clone git://github.com/thinkwhere/geoserver-docker
+git clone git://github.com/simonelanucara/GeoServer-Docker/
 ```
 Now edit ``71-apt-cacher-ng`` 
 
@@ -62,7 +65,7 @@ the `TOMCAT_EXTRAS` build-arg to `false` when building the image.  (This is the 
 build.sh.)
 
 ```shell
-docker build --build-arg TOMCAT_EXTRAS=false -t thinkwhere/geoserver-docker .
+docker build --build-arg TOMCAT_EXTRAS=false -t simonelanucara/GeoServer-Docker/ .
 ```
 
 ### GeoWebCache
@@ -72,7 +75,7 @@ the stand-alone GeoWebCache, or another caching engine such as MapProxy, you can
 by setting the `DISABLE_GWC` build-arg to `true` when building the image.
 
 ```shell
-docker build --build-arg DISABLE_GWC=true -t thinkwhere/geoserver-docker .
+docker build --build-arg DISABLE_GWC=true -t simonelanucara/GeoServer-Docker/ .
 ```
 
 **Note:** this removes all *gwc* jar files from the installation. If you are building with plugins that have 
