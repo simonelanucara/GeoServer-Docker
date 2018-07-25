@@ -34,11 +34,15 @@ if [ ! -f resources/plugins/geoserver-ysld-plugin.zip ]
 then
     wget -c http://downloads.sourceforge.net/project/geoserver/GeoServer/${GS_VERSION}/extensions/geoserver-${GS_VERSION}-ysld-plugin.zip -O resources/plugins/geoserver-ysld-plugin.zip
 fi
+if [ ! -f resources/plugins/geoserver-2.13-SNAPSHOT-hz-cluster-plugin.zip ]
+then
+    wget -c http://ares.boundlessgeo.com/geoserver/master/community-latest/geoserver-2.13-SNAPSHOT-hz-cluster-plugin.zip -O resources/plugins/geoserver-2.13-SNAPSHOT-hz-cluster-plugin.zip
+fi
 #if [ ! -f resources/plugins/geoserver-gdal-plugin.zip ]
 #then
 #    wget -c http://netix.dl.sourceforge.net/project/geoserver/GeoServer/${GS_VERSION}/extensions/geoserver-${GS_VERSION}-gdal-plugin.zip -O resources/plugins/geoserver-gdal-plugin.zip
 #fi
 
-docker build --build-arg TOMCAT_EXTRAS=false -t thinkwhere/geoserver .
+docker build --build-arg TOMCAT_EXTRAS=false -t simonelanucara/geoserver-docker .
 ## Note: disabling GWC may conflict with plugins in 2.9+ that have this as a dependency
 #docker build --build-arg DISABLE_GWC=true --build-arg TOMCAT_EXTRAS=false -t thinkwhere/geoserver .
