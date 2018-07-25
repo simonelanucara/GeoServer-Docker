@@ -177,11 +177,12 @@ Docker-compose allows you to deploy a load-balanced cluster of geoserver contain
 
 To deploy using docker-compose:
 
-1. copy nginx folder from this repository to your machine.
+1. copy nginx folder from this repository to your machine (LOAD BALANCER EXLUDED).
 2. copy tomcat_settings folder from this repository to your machine.
 3. copy docker-compose.yml to your machine.  Edit the volume entries to reflect the correct location of your geoserver_data, nginx and tomcat_settings folders on your machine.
-4. type `docker-compose up -d`  to start up a load-balanced cluster of 2x geoserver containers + nginx.
-5. access geoserver services at  http://localhost/geoserver/wms?
+4. type `docker build -t simonelanucara/geoserver-docker:2.13 .` to build the image locally
+4. type `docker-compose up --build -d`  to start up a cluster of 2x geoserver containers.
+5. access geoserver services at  http://YOURIP/geoserver/wms?
 
 **Note:** The default geoserver user is 'admin' and the password is 'geoserver'.
 It is recommended that these are changed for production systems.
