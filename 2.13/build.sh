@@ -38,6 +38,10 @@ if [ ! -f resources/plugins/geoserver-2.13-SNAPSHOT-hz-cluster-plugin.zip ]
 then
     wget -c http://ares.boundlessgeo.com/geoserver/master/community-latest/geoserver-2.13-SNAPSHOT-hz-cluster-plugin.zip -O resources/plugins/geoserver-2.13-SNAPSHOT-hz-cluster-plugin.zip
 fi
+if [ ! -f resources/plugins/geoserver-2.13-SNAPSHOT-jdbcconfig-plugin.zip ]
+then
+    wget -c http://ares.boundlessgeo.com/geoserver/master/community-latest/geoserver-2.13-SNAPSHOT-jdbcconfig-plugin.zip -O resources/plugins/geoserver-2.13-SNAPSHOT-jdbcconfig-plugin.zip
+fi
 #if [ ! -f resources/plugins/geoserver-gdal-plugin.zip ]
 #then
 #    wget -c http://netix.dl.sourceforge.net/project/geoserver/GeoServer/${GS_VERSION}/extensions/geoserver-${GS_VERSION}-gdal-plugin.zip -O resources/plugins/geoserver-gdal-plugin.zip
