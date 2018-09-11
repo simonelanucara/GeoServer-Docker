@@ -171,7 +171,7 @@ Docker-compose allows you to deploy a load-balanced cluster of geoserver contain
 
 To deploy using docker-compose:
 
-1. copy nginx folder from this repository to your machine (LOAD BALANCER EXLUDED).
+1. copy nginx folder from this repository to your machine and edit the nginx.conf file.
 2. copy tomcat_settings folder from this repository to your machine.
 3. copy docker-compose.yml to your machine.  Edit the volume entries to reflect the correct location of your geoserver_data, nginx and tomcat_settings folders on your machine.
 4. type `docker build -t simonelanucara/geoserver-docker:2.13 .` to build the image locally
