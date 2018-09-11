@@ -175,7 +175,7 @@ To deploy using docker-compose:
 2. copy tomcat_settings folder from this repository to your machine.
 3. copy docker-compose.yml to your machine.  Edit the volume entries to reflect the correct location of your geoserver_data, nginx and tomcat_settings folders on your machine.
 4. type `docker build -t simonelanucara/geoserver-docker:2.13 .` to build the image locally
-5. type `docker-compose up --build -d`  to start up a cluster of 2x geoserver containers + 1 posgresql/postgis container +1 nginx load balancer.
+5. type `docker-compose up --build -d`  to start up a cluster of 2x geoserver containers + 1 posgresql/postgis container +1 nginx load balancer container.
 6. configure jdbcconfig and cluster properties
 7. access geoserver services at  http://YOURIP/geoserver/wms?
 8. add postgis store
