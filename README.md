@@ -46,6 +46,7 @@ GeoServer you are installing.
 GeoServer version is controlled by the variable in Dockerfile, or download the WAR bundle
 for the version you want to `resources/geoserver.zip` before building.
 The 2.13 version contain jdbcconfig and hazelcast plugin.
+The jdbconfig, hazelcast and others plugins can be downloaded here: https://build.geoserver.org/geoserver/2.13.x/community-latest/
 
 ### Custom Fonts
 
